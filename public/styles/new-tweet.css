@@ -9,13 +9,12 @@
   flex-direction: column;
 }
 
-.sendTweet {
+.send-tweet {
   display: flex;
   font-family: "Bungee";
   flex-direction: row;
   justify-content: space-between;
-  padding-top: 10px;
-  
+  padding-top: 10px; 
 }
 
 .tweet-text {
@@ -41,4 +40,12 @@ button {
 
 button:hover{
   border: 2px solid black;
+}
+
+.counter-negative {
+  color: red;
+}
+
+.counter-positive {
+  color: #545149;
 }

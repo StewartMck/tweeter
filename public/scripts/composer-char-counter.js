@@ -1,12 +1,18 @@
 $(document).ready(function() {
 
-  const counterDefaultColor = $('.container').find('.counter').css('color');
   $('.container').find('.tweet-text').keyup(function(event) {
+    const counter = $(event.target.nodeName).parentsUntil('.container').find('.counter');
     const numberChars = event.target.value.length;
     const charsLeft = 140 - numberChars;
-    const counterColor = charsLeft < 0 ? 'red' : counterDefaultColor;
-    $('.counter').html(charsLeft);
-    $('.counter').css('color', counterColor);
+
+    counter.html(charsLeft);
+
+    if (charsLeft < 0) {
+      counter.switchClass("counter-positive","counter-negative", 1000, "swing");
+    } else {
+      counter.switchClass("counter-negative","counter-positive", 1000, "swing");
+    }
+    //easeInOutQuad
   });
 
 });
