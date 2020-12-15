@@ -7,15 +7,17 @@
     <!-- External CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" type="text/css" />
 
-    <!-- Fonts -->
+    <!-- Fonts & Icons -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Source+Sans+Pro:ital,wght@0,300;0,600;1,300;1,600&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/768934bb81.js" crossorigin="anonymous"></script>
 
     <!-- App CSS -->
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
     <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
     <link rel="stylesheet" href="/styles/header.css" type="text/css" />
     <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/tweets.css" type="text/css" />
 
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -24,24 +26,21 @@
     <script type="text/javascript" src="/scripts/client.js"></script>
     <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
 
-    <script src="https://kit.fontawesome.com/768934bb81.js" crossorigin="anonymous"></script>
-
+    
   </head>
-
   <body>
     <!-- Top nav bar (fixed) -->
     <nav>
       <span>
          <a>Tweeter</a>
        </span>
-       <div class = "rightNavBar">
+       <div class = "right-nav-bar">
          <a><b>Write</b> a new tweet</a>
-         <i class="fas fa-angle-double-down""" style="color:red"></i>
+         <i class="fas fa-angle-double-down" style="color:red"></i>
         </div>
     </nav>
-
-    <header>
-      <div class="profilePic">
+    <header class="page-header">
+      <div class="profile-pic">
           <img src="/images/profile-hex.png"> 
       </div>
       <!-- <br> -->
@@ -53,17 +52,57 @@
     <!-- Page-specific (main) content here -->
     <main class="container">
       <section class="new-tweet">
-        <!-- <h2>Compose Tweet</h2> -->
         <form action="/tweets/", method="POST">
           <label for="tweet-text">What are you humming about?</label>
-          <textarea name="text" id="tweet-text"></textarea>
+          <textarea class="tweet-text" name="text"></textarea>
           <div class="sendTweet">
             <button type="submit">Tweet</button>
             <output name="counter" class="counter" for="tweet-text">140</output>
           </div>
         </form>
       </section>
+      <article class="tweets">
+        <header>
+          <div>
+          <img src="https://i.imgur.com/73hZDYK.png"></img>
+          <a>Newton</a>
+        </div>
+          <p>@SirIsaac</p>
+        </header>
+        <p class="tweet-history">
+        If I have seen further than others, it is by standing upon the shoulders of giants.
+        </p>
+        <footer>
+          <a>...days ago</a>
+          <div class="footer-icons">
+            <i class="fas fa-flag" style="color:#4056A1"></i>
+            <i class="fas fa-retweet" style="color:#4056A1"></i>
+            <i class="fas fa-heart" style="color:#4056A1"></i>
+          </div>
+        </footer>
+        <br>
+      </article>
+      <article class="tweets">
+        <header>
+          <div>
+          <img src="https://i.imgur.com/73hZDYK.png"></img>
+          <a>Newton</a>
+        </div>
+          <p>@SirIsaac</p>
+        </header>
+        <p id="tweet-history">
+        If I have seen further than others, it is by standing upon the shoulders of giants.
+        </p>
+        <footer>
+          <a>...days ago</a>
+          <div id="footerIcons">
+            <i class="fas fa-flag" style="color:#4056A1"></i>
+            <i class="fas fa-retweet" style="color:#4056A1"></i>
+            <i class="fas fa-heart" style="color:#4056A1"></i>
+          </div>
+        </footer>
+        <br>
+      </article>
     </main>
-   
   </body>
 </html>

@@ -1,8 +1,6 @@
 .new-tweet {
   font-weight: bold;
   width: 90%;
-  /* border-style: dashed;
-  border-color: red; */
   align-self: center;
 }
 
@@ -16,13 +14,11 @@
   font-family: "Bungee";
   flex-direction: row;
   justify-content: space-between;
-  /* border-style: dashed;
-  border-color: yellow; */
   padding-top: 10px;
   
 }
 
-#tweet-text {
+.tweet-text {
   resize: none;
   font-size: 20px;
   font-weight: bold;
@@ -30,8 +26,7 @@
   outline: 0;
   border: 0px;
   padding-bottom: 0;
-  border-bottom: 2px solid black;
-  
+  border-bottom: solid 4px #545149;;
 }
 
 button {

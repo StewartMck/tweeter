@@ -1,11 +1,9 @@
-header {
+header.page-header {
   height: 400 px;
+  margin-top: 120px;
   display: flex;
   flex-direction: column;
-  /* border: dashed;
-  border-color: red; */
   align-items: center;
-   
   background-color: #d18400;
   background-image: url("https://www.transparenttextures.com/patterns/back-pattern.png");
 }

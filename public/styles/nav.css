@@ -1,15 +1,17 @@
 body nav {
   height: 120px;
+  width: 100%;
   background-color: #4056A1;
   color: #FFFF;
-  border: dashed;
-  border-color: black;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   padding-right: 1.5em;
   padding-left: 1.5em;
+  position: fixed;
+  top: 0;
+  overflow: hidden;
   }
 
   nav span {
@@ -19,19 +21,17 @@ body nav {
     font-size: 50px;
   }
 
- .rightNavBar {
-  /* border-style: dashed;
-  border-color: red; */
+ .right-nav-bar {
   font-size: 20px;
   display:flex;
   flex-direction: column;
  }
 
- .rightNavBar i {
+ .right-nav-bar i {
   align-self: center;
  }
 
- .rightNavBar i:hover {
+ .right-nav-bar i:hover {
    font-size: 30px;
  }
 
