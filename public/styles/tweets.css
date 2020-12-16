@@ -1,7 +1,12 @@
+.tweets {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 article {
   width: 90%;
   border: solid 4px #545149;;
-  align-self: center;
   margin-top: 2em;
   display: flex;
   flex-direction: column;

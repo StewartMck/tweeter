@@ -12,7 +12,6 @@ $(document).ready(function() {
     } else {
       counter.switchClass("counter-negative","counter-positive", 1000, "swing");
     }
-    //easeInOutQuad
-  });
 
+  });
 });

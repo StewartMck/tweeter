@@ -36,16 +36,17 @@ button {
   text-decoration: none;
   font-size: 20px;
   border-radius: 6px;
-}
+  }
 
 button:hover{
   border: 2px solid black;
 }
 
 .counter-negative {
-  color: red;
+  font-size: 30px;
+  color: rgba(223, 18, 18, 0.925);
 }
 
 .counter-positive {
-  color: #545149;
+  color: #545149; 
 }
