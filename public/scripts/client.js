@@ -1,41 +1,46 @@
 $(document).ready(function() {
 
-  const data = [
-    {
-      "user": {
-        "name": "Newton",
-        "avatars": "https://i.imgur.com/73hZDYK.png"
-        ,
-        "handle": "@SirIsaac"
-      },
-      "content": {
-        "text": "If I have seen further it is by standing on the shoulders of giants"
-      },
-      "created_at": 1461116232227
-    },
-    {
-      "user": {
-        "name": "Descartes",
-        "avatars": "https://i.imgur.com/nlhLi3I.png",
-        "handle": "@rd" },
-      "content": {
-        "text": "Je pense , donc je suis"
-      },
-      "created_at": 1461113959088
-    },
-    {
-      "user": {
-        "name": "test",
-        "avatars": "https://i.imgur.com/73hZDYK.png"
-        ,
-        "handle": "@test"
-      },
-      "content": {
-        "text": "blah blah blah"
-      },
-      "created_at": 1606756408458
-    },
-  ];
+  const loadTweets = () => {
+    $.ajax({
+      url: '/tweets',
+      method: 'GET'
+    })
+      .then((response) => {
+        renderTweets(response);
+      })
+      .catch(err => {
+        // add error code here
+      });
+  };
+
+  loadTweets();
+
+  $('.container').find('form').submit((event) => {
+    event.preventDefault();
+    const tweet = $(event.target).find('.tweet-text');
+    
+    if (!$(tweet).val()) {
+      window.alert('The tweet cannot be empty!');
+    } else if ($(tweet).val().length > 140) {
+      window.alert('The tweet cannot be more than 140 characters in length');
+    } else {
+
+      $.ajax({
+        url: '/tweets',
+        dataType: 'text',
+        method: 'POST',
+        contentType: 'application/x-www-form-urlencoded',
+        data: $(tweet).serialize()
+      })
+        .then((response) => {
+          $(tweet).val("");
+          loadTweets();
+        })
+        .catch(err => {
+          console.log('Error:', err);
+        });
+    }
+  });
 
   const createTweetElement = (tweet) => {
     return $(`<article>
@@ -61,18 +66,18 @@ $(document).ready(function() {
 </article>`);
   };
 
+
   const renderTweets = (tweetsData) => {
     for (const tweet of tweetsData) {
       $('.container').find('.tweets').append(createTweetElement(tweet));
     }
   };
 
-  renderTweets(data);
-  calcDays('2020-12-00');
-
+  const calcDays = (date) => {
+    // uses the dayjs lib to get the difference in the timestamp date and now
+    let tweetDate = dayjs(date);
+    return dayjs().diff(tweetDate, 'day');
+  };
+  
+  
 });
-
-const calcDays = (date) => {
-  let tweetDate = dayjs(date);
-  return dayjs().diff(tweetDate, 'day');
-};
