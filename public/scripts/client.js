@@ -9,7 +9,7 @@ $(document).ready(function() {
         renderTweets(response);
       })
       .catch(err => {
-        // add error code here
+        console.log(err);
       });
   };
 
@@ -34,6 +34,8 @@ $(document).ready(function() {
       })
         .then((response) => {
           $(tweet).val("");
+          $(event.target).find('.counter').val('140');
+          $('.container').find('.tweets').empty();
           loadTweets();
         })
         .catch(err => {
@@ -52,7 +54,7 @@ $(document).ready(function() {
     <p>${tweet.user.handle}</p>
   </header>
   <p class="tweet-history">
-  ${tweet.content.text}
+  ${escape(tweet.content.text, 'p')}
   </p>
   <footer>
     <a>${calcDays(tweet.created_at)} days ago</a>
@@ -66,6 +68,12 @@ $(document).ready(function() {
 </article>`);
   };
 
+  // Generic Escape function
+  const escape =  (str) => {
+    const element = document.createElement('div');
+    element.appendChild(document.createTextNode(str));
+    return element.innerHTML;
+  };
 
   const renderTweets = (tweetsData) => {
     for (const tweet of tweetsData) {
@@ -78,6 +86,5 @@ $(document).ready(function() {
     let tweetDate = dayjs(date);
     return dayjs().diff(tweetDate, 'day');
   };
-  
-  
+    
 });
