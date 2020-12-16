@@ -7,4 +7,6 @@ header.page-header {
   background-color: #d18400;
   background-image: url("https://www.transparenttextures.com/patterns/back-pattern.png");
   margin-bottom: 20px;
+  color: rgb(255, 255, 255);
+  font-size: 28px;
 }

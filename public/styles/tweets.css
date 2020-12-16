@@ -43,6 +43,7 @@ article img {
   width: 90%;
   font-weight: bold;
   font-size: 20px;
+  word-wrap: break-word;
 }
 
 article footer {

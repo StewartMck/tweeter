@@ -42,21 +42,27 @@
        </span>
        <div class = "right-nav-bar">
          <a><b>Write</b> a new tweet</a>
-         <i class="fas fa-angle-double-down" style="color:red"></i>
+         <i class="hide-new-tweet fas fa-angle-double-down" style="color:red"></i>
         </div>
     </nav>
     <header class="page-header">
       <div class="profile-pic">
           <img src="/images/profile-hex.png"> 
       </div>
-      <!-- <br> -->
       <div class="user-name">
-          <h2>Your Name</h2>
+          <h2><b>Stewart</b> McKinlay</h2>
       </div>
   </header>
 
     <!-- Page-specific (main) content here -->
     <main class="container">
+      <div class="error-display-hidden">
+        <div class="error-display-visible">
+          <i class="fas fa-exclamation-triangle"></i>
+          <p class="error-message">ERROR</p>
+          <i class="fas fa-exclamation-triangle"></i>
+        </div>
+      </div>
       <section class="new-tweet">
         <form>
           <label for="tweet-text">What are you humming about?</label>
@@ -68,27 +74,7 @@
         </form>
       </section>
       <section class="tweets">
-      <!-- <article>
-        <header>
-          <div>
-          <img src="https://i.imgur.com/73hZDYK.png"></img>
-          <a>Newton</a>
-        </div>
-          <p>@SirIsaac</p>
-        </header>
-        <p class="tweet-history">
-        If I have seen further than others, it is by standing upon the shoulders of giants.
-        </p>
-        <footer>
-          <a>...days ago</a>
-          <div class="footer-icons">
-            <i class="fas fa-flag" style="color:#4056A1"></i>
-            <i class="fas fa-retweet" style="color:#4056A1"></i>
-            <i class="fas fa-heart" style="color:#4056A1"></i>
-          </div>
-        </footer>
-        <br>
-      </article> -->
+      <!-- Tweets are generated here -->
     </section>
     </main>
   </body>

@@ -50,3 +50,26 @@ button:hover{
 .counter-positive {
   color: #545149; 
 }
+
+.error-display-hidden {
+  width: 90%;
+  margin: 20px;
+  align-self: center;
+  display:none
+}
+
+.error-display-visible {
+  display: flex;
+  flex-direction: row;
+  color: rgba(223, 18, 18, 0.925);
+  font-size: 20px;
+  font-family: "Bungee";
+  font-weight: bold;
+  border: solid 5px red;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.hide-new-tweets {
+  display: none;
+}

@@ -18,12 +18,19 @@ $(document).ready(function() {
   $('.container').find('form').submit((event) => {
     event.preventDefault();
     const tweet = $(event.target).find('.tweet-text');
-    
-    if (!$(tweet).val()) {
-      window.alert('The tweet cannot be empty!');
-    } else if ($(tweet).val().length > 140) {
-      window.alert('The tweet cannot be more than 140 characters in length');
+    let isSlideDown = false;
+    if (!$(tweet).val() || $(tweet).val().length > 140) {
+      $('.error-display-hidden').slideDown("slow", () => {
+      });
+      const msg = !$(tweet).val() ? 'TWEET CANNOT BE EMPTY!'
+        : 'OVER THE CHARACTER LIMIT!';
+      $('.error-message').text(msg);
+      isSlideDown = true;
     } else {
+      if (isSlideDown); {
+        $('.error-display-hidden').slideUp("fast", () => {
+        });
+      }
 
       $.ajax({
         url: '/tweets',
@@ -83,8 +90,25 @@ $(document).ready(function() {
 
   const calcDays = (date) => {
     // uses the dayjs lib to get the difference in the timestamp date and now
+    console.log('date', date)
     let tweetDate = dayjs(date);
-    return dayjs().diff(tweetDate, 'day');
+    return dayjs().diff(tweetDate, 'd');
   };
-    
+
+ 
+  let isUp = false;
+  $('.hide-new-tweet').click((event) => {
+    if (!isUp) {
+      $('.new-tweet').slideUp('slow', () => {
+        isUp = true;
+        $('.new-tweet').addClass("hide-new-tweets");
+      });
+    } else {
+      $('.hide-new-tweets').slideDown('slow', () => {
+        isUp = false;
+      });
+    }
+  });
+
+
 });
