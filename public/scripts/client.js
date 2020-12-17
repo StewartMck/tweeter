@@ -64,7 +64,7 @@ $(document).ready(function() {
   ${escape(tweet.content.text, 'p')}
   </p>
   <footer>
-    <a>${calcDays(tweet.created_at)} days ago</a>
+    <a>${calcDays(tweet.created_at)}</a>
     <div class="footer-icons">
       <i class="fas fa-flag" style="color:#4056A1"></i>
       <i class="fas fa-retweet" style="color:#4056A1"></i>
@@ -89,10 +89,13 @@ $(document).ready(function() {
   };
 
   const calcDays = (date) => {
-    // uses the dayjs lib to get the difference in the timestamp date and now
-    console.log('date', date)
-    let tweetDate = dayjs(date);
-    return dayjs().diff(tweetDate, 'd');
+    // uses the dayjs lib to get the difference in the timestamp date and current date
+    const minutes =  dayjs().diff(date, 'm');
+
+    return minutes < 59 ? `${dayjs().diff(date, 'm')} minutes ago` :
+      minutes > 60 && minutes < 1439 ? `${dayjs().diff(date, 'h')} hours ago` :
+        `${dayjs().diff(date, 'd')} days ago`;
+    
   };
 
  
