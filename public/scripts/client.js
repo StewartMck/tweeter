@@ -92,25 +92,17 @@ $(document).ready(function() {
     // uses the dayjs lib to get the difference in the timestamp date and current date
     const minutes =  dayjs().diff(date, 'm');
 
-    return minutes < 59 ? `${dayjs().diff(date, 'm')} minutes ago` :
+    return minutes < 59 ? `${dayjs().diff(date, 'm')} minute${minutes === 1 ? '' : 's'} ago` :
       minutes > 60 && minutes < 1439 ? `${dayjs().diff(date, 'h')} hours ago` :
         `${dayjs().diff(date, 'd')} days ago`;
-    
   };
 
  
-  let isUp = false;
   $('.hide-new-tweet').click((event) => {
-    if (!isUp) {
-      $('.new-tweet').slideUp('slow', () => {
-        isUp = true;
-        $('.new-tweet').addClass("hide-new-tweets");
-      });
-    } else {
-      $('.hide-new-tweets').slideDown('slow', () => {
-        isUp = false;
-      });
-    }
+    $(window).scrollTop(0);
+    $('.new-tweet').slideToggle('slow', () => {
+      $('.tweet-text').focus();
+    });
   });
 
 
