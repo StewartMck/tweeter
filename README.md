@@ -1,8 +1,7 @@
-# Tweeter Project
-!["Tweeter Logo"]()
+!["Tweeter Logo"](https://github.com/StewartMck/tweeter/blob/master/public/docs/tweeter_logo.PNG?raw=true)
 
 Tweeter is a simple, single-page Twitter clone.
-
+# Tweeter Project
 !["Tweeter gif"]()
 
 
