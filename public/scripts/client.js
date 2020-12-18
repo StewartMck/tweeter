@@ -14,7 +14,8 @@ $(document).ready(function() {
   };
 
   loadTweets();
-
+  
+  //using find here for future scalability. No ambiguity as to target element
   $('.container').find('form').submit((event) => {
     event.preventDefault();
     const tweet = $(event.target).find('.tweet-text');
@@ -95,7 +96,7 @@ $(document).ready(function() {
 
     return minutes < 59 ? `${dayjs().diff(date, 'm')} minute${minutes === 1 ? '' : 's'} ago` :
       minutes >= 60 && minutes < 1439 ? `${dayjs().diff(date, 'h')} hour${minutes >= 60 && minutes < 120 ? '' : 's'} ago` :
-        `${dayjs().diff(date, 'd')} days ago`;
+        `${dayjs().diff(date, 'd')} day${dayjs().diff(date, 'd') <= 1 ? '' : 's'} ago`;
   };
 
  
