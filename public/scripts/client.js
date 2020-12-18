@@ -18,20 +18,21 @@ $(document).ready(function() {
   $('.container').find('form').submit((event) => {
     event.preventDefault();
     const tweet = $(event.target).find('.tweet-text');
-    let isSlideDown = false;
+    
     if (!$(tweet).val() || $(tweet).val().length > 140) {
-      $('.error-display-hidden').slideDown("slow", () => {
+      $('.error-display-container').slideToggle("slow", () => {
       });
       const msg = !$(tweet).val() ? 'TWEET CANNOT BE EMPTY!'
         : 'OVER THE CHARACTER LIMIT!';
       $('.error-message').text(msg);
-      isSlideDown = true;
-    } else {
-      if (isSlideDown); {
-        $('.error-display-hidden').slideUp("fast", () => {
+      $('.tweet-text').focus();
+      setTimeout(() => {
+        $('.error-display-container').slideToggle("slow", () => {
         });
-      }
+      }, 5000);
 
+    } else {
+   
       $.ajax({
         url: '/tweets',
         dataType: 'text',
@@ -93,7 +94,7 @@ $(document).ready(function() {
     const minutes =  dayjs().diff(date, 'm');
 
     return minutes < 59 ? `${dayjs().diff(date, 'm')} minute${minutes === 1 ? '' : 's'} ago` :
-      minutes > 60 && minutes < 1439 ? `${dayjs().diff(date, 'h')} hours ago` :
+      minutes >= 60 && minutes < 1439 ? `${dayjs().diff(date, 'h')} hour${minutes >= 60 && minutes < 120 ? '' : 's'} ago` :
         `${dayjs().diff(date, 'd')} days ago`;
   };
 

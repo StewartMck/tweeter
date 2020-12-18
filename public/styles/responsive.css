@@ -1,0 +1,39 @@
+/* TABLET AND BELOW */
+@media only screen and (max-width:1024px) {
+  
+  body nav {
+    background-color: #d18400;
+    background-image: url("https://www.transparenttextures.com/patterns/back-pattern.png");
+  }
+
+  header.page-header {
+    width: 100%
+  }
+}
+
+/* DESKTOP */
+@media only screen and (min-width:1024px) {
+   
+  body {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-items: baseline;
+  }
+
+  header.page-header {
+    width: 30%;
+    margin-top: 7.5em;
+    line-height: 0.5em;
+  }
+
+  header img {
+    line-height: 5em;
+  }
+
+  main.container {
+   margin-top: 8em;
+   width: 50%;
+  }
+}

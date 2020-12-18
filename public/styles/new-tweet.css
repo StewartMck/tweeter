@@ -14,18 +14,19 @@
   font-family: "Bungee";
   flex-direction: row;
   justify-content: space-between;
-  padding-top: 10px; 
+  padding-top: 0.5em; 
 }
 
 .tweet-text {
   resize: none;
-  font-size: 20px;
+  font-size: 0.9em;
   font-weight: bold;
   background-color: transparent;
-  outline: 0;
-  border: 0px;
-  padding-bottom: 0;
-  border-bottom: solid 4px #545149;;
+  outline: none;
+  border: none;
+  padding-top: 0.4em;
+  border-bottom: solid 0.2em #545149;
+  line-height: 1em;
 }
 
 button {
@@ -34,16 +35,21 @@ button {
   color: white;
   text-align: center;
   text-decoration: none;
-  font-size: 20px;
-  border-radius: 6px;
+  border-radius: 0.6em;
   }
 
 button:hover{
-  border: 2px solid black;
+  border: 0.1em solid black;
 }
 
+/* This is needed otherwise in Chrome there is an outline when clicked */
+button:focus{
+  outline: none;
+}
+
+/* switching classes between counter neg and pos */
 .counter-negative {
-  font-size: 30px;
+  font-size: 1.3em;
   color: rgba(223, 18, 18, 0.925);
 }
 
@@ -51,21 +57,21 @@ button:hover{
   color: #545149; 
 }
 
-.error-display-hidden {
+.error-display-container {
   width: 90%;
-  margin: 20px;
+  margin: 0.8em;
   align-self: center;
   display:none
 }
 
-.error-display-visible {
+.error-display {
   display: flex;
   flex-direction: row;
   color: rgba(223, 18, 18, 0.925);
-  font-size: 20px;
+  font-size: 0.8em;
   font-family: "Bungee";
   font-weight: bold;
-  border: solid 5px red;
+  border: solid 0.3em red;
   justify-content: space-between;
   align-items: center;
 }

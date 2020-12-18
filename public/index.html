@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <!-- Meta Information -->
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
     <title>Tweeter - Home Page</title>
 
     <!-- External CSS -->
@@ -18,13 +19,15 @@
     <link rel="stylesheet" href="/styles/header.css" type="text/css" />
     <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
     <link rel="stylesheet" href="/styles/tweets.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/responsive.css" type="text/css" />
+
 
     <!-- External JS -->
     <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script defer src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/dayjs@1.9.7/dayjs.min.js"></script> -->
+    <script src="https://unpkg.com/dayjs@1.9.7/dayjs.min.js"></script>
     <script src="https://unpkg.com/dayjs@1.9.7/plugin/relativeTime.js"></script>
-    <script>dayjs.extend(window.dayjs_plugin_relativeTime)</script> -->
+    <script>dayjs.extend(window.dayjs_plugin_relativeTime)</script>
     <script>dayjs().format()</script>
 
 
@@ -50,14 +53,14 @@
           <img src="/images/profile-hex.png"> 
       </div>
       <div class="user-name">
-          <h2><b>Stewart</b> McKinlay</h2>
+          <h2><strong>Stewart</strong> McKinlay</h2>
       </div>
   </header>
 
     <!-- Page-specific (main) content here -->
     <main class="container">
-      <div class="error-display-hidden">
-        <div class="error-display-visible">
+      <div class="error-display-container">
+        <div class="error-display">
           <i class="fas fa-exclamation-triangle"></i>
           <p class="error-message">ERROR</p>
           <i class="fas fa-exclamation-triangle"></i>
