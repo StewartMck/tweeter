@@ -31,6 +31,18 @@ main.container {
   align-self: center;
 }
 
-/*
- * Additional CSS can be defined below or in other CSS files, as per instructions
- */
+#scroll-button {
+  display: hidden;
+  position: fixed;
+  border: none;
+  outline: none;
+  bottom: 1em;
+  right: 0.5em;
+  z-index: 99;
+  font-size: 2em;
+  cursor: pointer;
+}
+
+#scroll-button:hover {
+  color: #4056A1;
+}

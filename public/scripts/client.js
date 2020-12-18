@@ -14,12 +14,12 @@ $(document).ready(function() {
   };
 
   loadTweets();
-  
+
   //using find here for future scalability. No ambiguity as to target element
   $('.container').find('form').submit((event) => {
     event.preventDefault();
     const tweet = $(event.target).find('.tweet-text');
-    
+
     if (!$(tweet).val() || $(tweet).val().length > 140) {
       $('.error-display-container').slideToggle("slow", () => {
       });
@@ -33,7 +33,7 @@ $(document).ready(function() {
       }, 5000);
 
     } else {
-   
+
       $.ajax({
         url: '/tweets',
         dataType: 'text',
@@ -78,7 +78,7 @@ $(document).ready(function() {
   };
 
   // Generic Escape function
-  const escape =  (str) => {
+  const escape = (str) => {
     const element = document.createElement('div');
     element.appendChild(document.createTextNode(str));
     return element.innerHTML;
@@ -92,19 +92,38 @@ $(document).ready(function() {
 
   const calcDays = (date) => {
     // uses the dayjs lib to get the difference in the timestamp date and current date
-    const minutes =  dayjs().diff(date, 'm');
+    const minutes = dayjs().diff(date, 'm');
 
     return minutes < 59 ? `${dayjs().diff(date, 'm')} minute${minutes === 1 ? '' : 's'} ago` :
       minutes >= 60 && minutes < 1439 ? `${dayjs().diff(date, 'h')} hour${minutes >= 60 && minutes < 120 ? '' : 's'} ago` :
         `${dayjs().diff(date, 'd')} day${dayjs().diff(date, 'd') <= 1 ? '' : 's'} ago`;
   };
 
- 
+
   $('.hide-new-tweet').click((event) => {
     $(window).scrollTop(0);
     $('.new-tweet').slideToggle('slow', () => {
       $('.tweet-text').focus();
     });
+  });
+
+
+  $(document).scroll(() => {
+    scroll();
+  });
+
+  const scroll = () => {
+    if ($(document).scrollTop() > 200) {
+      $('#scroll-button').show();
+    } else {
+      $('#scroll-button').hide();
+    }
+  };
+  
+  $('#scroll-button').click(() => {
+    $("html, body").animate({
+      scrollTop: 0
+    }, "slow");
   });
 
 

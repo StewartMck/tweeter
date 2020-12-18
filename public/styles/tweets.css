@@ -56,10 +56,14 @@ article footer {
   border-top: 0.1em solid #545149;
 }
 
+.footer-icons {
+  visibility: hidden;
+}
+
 article:hover {
   box-shadow: 0.2em 0.4em rgb(155, 154, 154)
 }
 
-article:hover header p{
+article:hover header p, article:hover .footer-icons {
   visibility: visible;
 }
