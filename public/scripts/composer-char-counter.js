@@ -1,5 +1,9 @@
-$(document).ready(function() {
+/*global $*/
 
+$(function() {
+
+  // Counter found by traversing the DOM tree up to the parent and then back to the counter. Counter is updated with the characters remaining.
+  // If characters remaining < 0 CSS classes are switched between positive and negative and visa-versa.
   $('.container').find('.tweet-text').keyup(function(event) {
     const counter = $(event.target.nodeName).parentsUntil('.container').find('.counter');
     const numberChars = event.target.value.length;

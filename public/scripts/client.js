@@ -1,4 +1,6 @@
-$(document).ready(function() {
+/*global $, document, calcDays, window*/
+
+$(function() {
 
   const loadTweets = () => {
     $.ajax({
@@ -21,19 +23,13 @@ $(document).ready(function() {
     const tweet = $(event.target).find('.tweet-text');
 
     if (!$(tweet).val() || $(tweet).val().length > 140) {
-      $('.error-display-container').slideToggle("slow", () => {
-      });
+      $('.error-display-container').slideDown("slow");
       const msg = !$(tweet).val() ? 'TWEET CANNOT BE EMPTY!'
         : 'OVER THE CHARACTER LIMIT!';
       $('.error-message').text(msg);
       $('.tweet-text').focus();
-      setTimeout(() => {
-        $('.error-display-container').slideToggle("slow", () => {
-        });
-      }, 5000);
-
     } else {
-
+      $('.error-display-container').slideUp("slow");
       $.ajax({
         url: '/tweets',
         dataType: 'text',
@@ -41,7 +37,7 @@ $(document).ready(function() {
         contentType: 'application/x-www-form-urlencoded',
         data: $(tweet).serialize()
       })
-        .then((response) => {
+        .then(() => {
           $(tweet).val("");
           $(event.target).find('.counter').val('140');
           $('.container').find('.tweets').empty();
@@ -77,46 +73,29 @@ $(document).ready(function() {
 </article>`);
   };
 
-  // Generic Escape function
-  const escape = (str) => {
-    const element = document.createElement('div');
-    element.appendChild(document.createTextNode(str));
-    return element.innerHTML;
-  };
-
   const renderTweets = (tweetsData) => {
     for (const tweet of tweetsData) {
       $('.container').find('.tweets').append(createTweetElement(tweet));
     }
   };
-
-  const calcDays = (date) => {
-    // uses the dayjs lib to get the difference in the timestamp date and current date
-    const minutes = dayjs().diff(date, 'm');
-
-    return minutes < 59 ? `${dayjs().diff(date, 'm')} minute${minutes === 1 ? '' : 's'} ago` :
-      minutes >= 60 && minutes < 1439 ? `${dayjs().diff(date, 'h')} hour${minutes >= 60 && minutes < 120 ? '' : 's'} ago` :
-        `${dayjs().diff(date, 'd')} day${dayjs().diff(date, 'd') <= 1 ? '' : 's'} ago`;
-  };
-
-
-  $('.hide-new-tweet').click((event) => {
+ 
+  $('.hide-new-tweet').click(() => {
     $(window).scrollTop(0);
     $('.new-tweet').slideToggle('slow', () => {
       $('.tweet-text').focus();
     });
   });
 
-
+  //Event listener on scroll of DOM.
   $(document).scroll(() => {
     scroll();
   });
 
   const scroll = () => {
     if ($(document).scrollTop() > 200) {
-      $('#scroll-button').show();
+      $('#scroll-button').css('opacity', '1');
     } else {
-      $('#scroll-button').hide();
+      $('#scroll-button').css('opacity', '0');
     }
   };
   
@@ -125,6 +104,5 @@ $(document).ready(function() {
       scrollTop: 0
     }, "slow");
   });
-
 
 });
