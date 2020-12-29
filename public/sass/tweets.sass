@@ -1,0 +1,53 @@
+@use 'helpers'
+
+.tweets 
+  @include helpers.column_items_center
+  margin-bottom: 2em
+
+article
+  @include helpers.column_items_center
+  width: 90%
+  border: solid 0.15em helpers.$primary_text_colour
+  margin-top: 1em
+  
+  header
+    @include helpers.row_items_center
+    width: 90%
+    justify-content: space-between
+
+    p
+      font-weight: bold
+      color: rgb(155, 154, 154)
+      font-size: 1.1em
+      align-self: flex-end
+      visibility: hidden
+
+    div
+      @include helpers.row_items_center
+      justify-content: space-around
+
+  img
+    padding-right: 0.9em
+
+  footer
+    width: 98%
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+    align-content: center
+    border-top: 0.1em solid helpers.$primary_text_colour
+
+.tweet-history
+  width: 90%
+  font-weight: bold
+  font-size: 0.8em
+  word-wrap: break-word
+
+.footer-icons
+  visibility: hidden
+
+article:hover
+  box-shadow: 0.2em 0.4em rgb(155, 154, 154)
+
+article:hover header p, article:hover .footer-icons
+  visibility: visible

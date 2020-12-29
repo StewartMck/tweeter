@@ -3,6 +3,7 @@
   width: 90%;
   align-self: center;
 }
+
 .new-tweet form {
   display: flex;
   flex-direction: column;
@@ -13,7 +14,7 @@
   font-family: "Bungee";
   flex-direction: row;
   justify-content: space-between;
-  padding-top: 0.5em;
+  padding-top: 0.5em; 
 }
 
 .tweet-text {
@@ -35,14 +36,14 @@ button {
   text-align: center;
   text-decoration: none;
   border-radius: 0.6em;
-}
+  }
 
-button:hover {
+button:hover{
   border: 0.1em solid black;
 }
 
 /* This is needed otherwise in Chrome there is an outline when clicked */
-button:focus {
+button:focus{
   outline: none;
 }
 
@@ -53,26 +54,24 @@ button:focus {
 }
 
 .counter-positive {
-  color: #545149;
+  color: #545149; 
 }
 
 .error-display-container {
   width: 90%;
   margin: 0.8em;
   align-self: center;
-  display: none;
+  display:none
 }
 
 .error-display {
   display: flex;
   flex-direction: row;
-  align-items: center;
   color: rgba(223, 18, 18, 0.925);
   font-size: 0.8em;
   font-family: "Bungee";
   font-weight: bold;
   border: solid 0.3em red;
   justify-content: space-between;
+  align-items: center;
 }
-
-/*# sourceMappingURL=new-tweet.css.map */

@@ -1,36 +1,38 @@
 body nav {
+  position: fixed;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   height: 5em;
   width: 100%;
   background-color: #4056A1;
   color: #FFFF;
-  display: flex;
-  flex-direction: row;
   justify-content: space-between;
-  align-items: center;
   padding-right: 1.5em;
   padding-left: 1.5em;
-  position: fixed;
   top: 0;
   overflow: hidden;
-  }
+}
 
-  nav span {
-    display: flex;
-    flex-direction: row;
-    font-family: "Bungee";
-    font-size: 2em;
-  }
+nav span {
+  display: flex;
+  flex-direction: row;
+  font-family: "Bungee";
+  font-size: 2em;
+}
 
- .right-nav-bar {
+.right-nav-bar {
   font-size: 0.9em;
-  display:flex;
+  display: flex;
   flex-direction: column;
- }
+}
 
- .right-nav-bar i {
+.right-nav-bar i {
   align-self: center;
- }
+}
 
- .right-nav-bar i:hover {
-   font-size: 1.5em;
- }
+.right-nav-bar i:hover {
+  font-size: 1.5em;
+}
+
+/*# sourceMappingURL=nav.css.map */

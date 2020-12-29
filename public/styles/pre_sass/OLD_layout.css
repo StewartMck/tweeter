@@ -1,7 +1,8 @@
-/* * http://www.paulirish.com/2012/box-sizing-border-box-ftw/
- * * https://css-tricks.com/international-box-sizing-awareness-day/
- * * Do not modify these two selectors, please
- * */
+/*
+ * http://www.paulirish.com/2012/box-sizing-border-box-ftw/
+ * https://css-tricks.com/international-box-sizing-awareness-day/
+ * Do not modify these two selectors, please
+ */
 html {
   box-sizing: border-box;
 }
@@ -9,13 +10,15 @@ html {
   box-sizing: inherit;
 }
 
-/* * Global layout stuff
- * */
+/*
+ * Global layout stuff
+ */
+
 body {
   color: #545149;
   background-color: #F2EEEB;
   font-size: 24px;
-  font-family: "Source Sans Pro", sans-serif;
+  font-family: "Source Sans Pro",  sans-serif;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -27,9 +30,10 @@ main.container {
   width: 90%;
   align-self: center;
 }
-main #scroll-button {
-  position: fixed;
+
+#scroll-button {
   opacity: 0;
+  position: fixed;
   border: none;
   outline: none;
   bottom: 1em;
@@ -38,8 +42,7 @@ main #scroll-button {
   font-size: 2em;
   cursor: pointer;
 }
-main #scroll-button:hover {
+
+#scroll-button:hover {
   color: #4056A1;
 }
-
-/*# sourceMappingURL=layout.css.map */

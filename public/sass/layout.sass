@@ -1,0 +1,47 @@
+/*
+ * http://www.paulirish.com/2012/box-sizing-border-box-ftw/
+ * https://css-tricks.com/international-box-sizing-awareness-day/
+ * Do not modify these two selectors, please
+ */
+@use 'helpers'
+
+html
+  box-sizing: border-box
+
+  box-sizing: inherit
+
+
+/*
+ * Global layout stuff
+ */
+
+body
+  color: helpers.$primary_text_colour
+  background-color: helpers.$primary_background_colour
+  font-size: 24px
+  font-family: helpers.$primary_font,  sans-serif
+  display: flex
+  flex-direction: column
+  justify-content: center
+
+
+main
+  .container 
+    display: flex
+    flex-direction: column
+    width: 90%
+    align-self: center
+
+  #scroll-button
+    @include helpers.fixed
+    opacity: 0
+    border: none
+    outline: none
+    bottom: 1em
+    right: 0.5em
+    z-index: 99
+    font-size: 2em
+    cursor: pointer
+
+  #scroll-button:hover 
+    color: helpers.$brand_colour

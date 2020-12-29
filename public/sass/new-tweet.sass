@@ -1,0 +1,67 @@
+@use 'helpers'
+.new-tweet
+  font-weight: bold
+  width: 90%
+  align-self: center
+
+  form 
+    display: flex
+    flex-direction: column
+
+.send-tweet 
+  display: flex
+  font-family: helpers.$secondary_font
+  flex-direction: row
+  justify-content: space-between
+  padding-top: 0.5em
+
+.tweet-text 
+  resize: none
+  font-size: 0.9em
+  font-weight: bold
+  background-color: transparent
+  outline: none
+  border: none
+  padding-top: 0.4em
+  border-bottom: solid 0.2em helpers.$primary_text_colour
+  line-height: 1em
+
+button 
+  background-color: helpers.$brand_colour
+  border: none
+  color: white
+  text-align: center
+  text-decoration: none
+  border-radius: 0.6em
+  
+button:hover
+  border: 0.1em solid black
+
+
+/* This is needed otherwise in Chrome there is an outline when clicked */
+button:focus
+  outline: none
+
+
+/* switching classes between counter neg and pos */
+.counter-negative 
+  font-size: 1.3em
+  color: rgba(223, 18, 18, 0.925)
+
+.counter-positive 
+  color: helpers.$primary_text_colour
+
+.error-display-container 
+  width: 90%
+  margin: 0.8em
+  align-self: center
+  display: none
+
+.error-display 
+  @include helpers.row_items_center
+  color: rgba(223, 18, 18, 0.925)
+  font-size: 0.8em
+  font-family: helpers.$secondary_font
+  font-weight: bold
+  border: solid 0.3em red
+  justify-content: space-between

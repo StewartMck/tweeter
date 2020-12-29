@@ -6,43 +6,38 @@
 }
 
 article {
+  width: 90%;
+  border: solid 0.15em #545149;;
+  margin-top: 1em;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 90%;
-  border: solid 0.15em #545149;
-  margin-top: 1em;
 }
+
 article header {
+  width: 90%;
   display: flex;
   flex-direction: row;
   align-items: center;
-  width: 90%;
-  justify-content: space-between;
+  justify-content: space-between
 }
-article header p {
+
+header p{
   font-weight: bold;
-  color: #9b9a9a;
+  color: rgb(155, 154, 154);
   font-size: 1.1em;
   align-self: flex-end;
   visibility: hidden;
 }
+
 article header div {
   display: flex;
-  flex-direction: row;
   align-items: center;
   justify-content: space-around;
 }
+
 article img {
   padding-right: 0.9em;
-}
-article footer {
-  width: 98%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-content: center;
-  border-top: 0.1em solid #545149;
 }
 
 .tweet-history {
@@ -52,16 +47,23 @@ article footer {
   word-wrap: break-word;
 }
 
+article footer {
+  width: 98%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: center;
+  border-top: 0.1em solid #545149;
+}
+
 .footer-icons {
   visibility: hidden;
 }
 
 article:hover {
-  box-shadow: 0.2em 0.4em #9b9a9a;
+  box-shadow: 0.2em 0.4em rgb(155, 154, 154)
 }
 
 article:hover header p, article:hover .footer-icons {
   visibility: visible;
 }
-
-/*# sourceMappingURL=tweets.css.map */
